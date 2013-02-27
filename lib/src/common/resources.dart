@@ -257,13 +257,168 @@ class CommentsResource extends Resource {
   }
 }
 
+class MomentsResource extends Resource {
+
+  MomentsResource(Client client) : super(client) {
+  }
+
+  /**
+   * Record a moment representing a user's activity such as making a purchase or commenting on a blog.
+   *
+   * [request] - Moment to send in this request
+   *
+   * [userId] - The ID of the user to record activities for. The only valid values are "me" and the ID of the authenticated user.
+   *
+   * [collection] - The collection to which to write moments.
+   *   Allowed values:
+   *     vault - The default collection for writing new moments.
+   *
+   * [debug] - Return the moment as written. Should be used only for debugging.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<Moment> insert(Moment request, String userId, String collection, {bool debug, Map optParams}) {
+    var completer = new Completer();
+    var url = "people/{userId}/moments/{collection}";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (collection == null) paramErrors.add("collection is required");
+    if (collection != null && !["vault"].contains(collection)) {
+      paramErrors.add("Allowed values for collection: vault");
+    }
+    if (collection != null) urlParams["collection"] = collection;
+    if (debug != null) queryParams["debug"] = debug;
+    if (userId == null) paramErrors.add("userId is required");
+    if (userId != null) urlParams["userId"] = userId;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "POST", body: request.toString(), urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new Moment.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * List all of the moments for a particular user.
+   *
+   * [userId] - The ID of the user to get moments for. The special value "me" can be used to indicate the authenticated user.
+   *
+   * [collection] - The collection of moments to list.
+   *   Allowed values:
+   *     vault - All moments created by the requesting application for the authenticated user.
+   *
+   * [maxResults] - The maximum number of moments to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+   *   Default: 20
+   *   Minimum: 1
+   *   Maximum: 100
+   *
+   * [pageToken] - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+   *
+   * [targetUrl] - Only moments containing this targetUrl will be returned.
+   *
+   * [type] - Only moments of this type will be returned.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<MomentsFeed> list(String userId, String collection, {int maxResults, String pageToken, String targetUrl, String type, Map optParams}) {
+    var completer = new Completer();
+    var url = "people/{userId}/moments/{collection}";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (collection == null) paramErrors.add("collection is required");
+    if (collection != null && !["vault"].contains(collection)) {
+      paramErrors.add("Allowed values for collection: vault");
+    }
+    if (collection != null) urlParams["collection"] = collection;
+    if (maxResults != null) queryParams["maxResults"] = maxResults;
+    if (pageToken != null) queryParams["pageToken"] = pageToken;
+    if (targetUrl != null) queryParams["targetUrl"] = targetUrl;
+    if (type != null) queryParams["type"] = type;
+    if (userId == null) paramErrors.add("userId is required");
+    if (userId != null) urlParams["userId"] = userId;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new MomentsFeed.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * Delete a moment.
+   *
+   * [id] - The ID of the moment to delete.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<Map> remove(String id, {Map optParams}) {
+    var completer = new Completer();
+    var url = "moments/{id}";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (id == null) paramErrors.add("id is required");
+    if (id != null) urlParams["id"] = id;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "DELETE", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(data))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+}
+
 class PeopleResource extends Resource {
 
   PeopleResource(Client client) : super(client) {
   }
 
   /**
-   * Get a person's profile.
+   * Get a person's profile. If your app uses scope https://www.googleapis.com/auth/plus.login, this method is guaranteed to return ageRange and language.
    *
    * [userId] - The ID of the person to get the profile for. The special value "me" can be used to indicate the authenticated user.
    *
@@ -295,6 +450,70 @@ class PeopleResource extends Resource {
     response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
     response
       .then((data) => completer.complete(new Person.fromJson(data)))
+      .catchError((e) { completer.completeError(e); return true; });
+    return completer.future;
+  }
+
+  /**
+   * List all of the people in the specified collection.
+   *
+   * [userId] - Get the collection of people for the person identified. Use "me" to indiciated the authenticated user.
+   *
+   * [collection] - The collection of people to list.
+   *   Allowed values:
+   *     visible - The list of people who this user has added to one or more circles, limited to the circles visible to the requesting application.
+   *
+   * [maxResults] - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
+   *   Default: 100
+   *   Minimum: 1
+   *   Maximum: 100
+   *
+   * [orderBy] - The order to return people in.
+   *   Allowed values:
+   *     alphabetical - Order the people by their display name.
+   *     best - Order people based on the relevence to the viewer.
+   *
+   * [pageToken] - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response.
+   *
+   * [optParams] - Additional query parameters
+   */
+  Future<PeopleFeed> list(String userId, String collection, {int maxResults, String orderBy, String pageToken, Map optParams}) {
+    var completer = new Completer();
+    var url = "people/{userId}/people/{collection}";
+    var urlParams = new Map();
+    var queryParams = new Map();
+
+    var paramErrors = new List();
+    if (collection == null) paramErrors.add("collection is required");
+    if (collection != null && !["visible"].contains(collection)) {
+      paramErrors.add("Allowed values for collection: visible");
+    }
+    if (collection != null) urlParams["collection"] = collection;
+    if (maxResults != null) queryParams["maxResults"] = maxResults;
+    if (orderBy != null && !["alphabetical", "best"].contains(orderBy)) {
+      paramErrors.add("Allowed values for orderBy: alphabetical, best");
+    }
+    if (orderBy != null) queryParams["orderBy"] = orderBy;
+    if (pageToken != null) queryParams["pageToken"] = pageToken;
+    if (userId == null) paramErrors.add("userId is required");
+    if (userId != null) urlParams["userId"] = userId;
+    if (optParams != null) {
+      optParams.forEach((key, value) {
+        if (value != null && queryParams[key] == null) {
+          queryParams[key] = value;
+        }
+      });
+    }
+
+    if (!paramErrors.isEmpty) {
+      completer.completeError(new ArgumentError(paramErrors.join(" / ")));
+      return completer.future;
+    }
+
+    var response;
+    response = _client.request(url, "GET", urlParams: urlParams, queryParams: queryParams);
+    response
+      .then((data) => completer.complete(new PeopleFeed.fromJson(data)))
       .catchError((e) { completer.completeError(e); return true; });
     return completer.future;
   }

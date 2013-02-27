@@ -8,8 +8,13 @@ class Plus extends ConsoleClient {
   ActivitiesResource get activities => _activities;
   CommentsResource _comments;
   CommentsResource get comments => _comments;
+  MomentsResource _moments;
+  MomentsResource get moments => _moments;
   PeopleResource _people;
   PeopleResource get people => _people;
+
+  /** OAuth Scope2: Know your name, basic info, and list of people you're connected to on Google+ */
+  static const String PLUS_LOGIN_SCOPE = "https://www.googleapis.com/auth/plus.login";
 
   /** OAuth Scope2: Know who you are on Google */
   static const String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
@@ -68,6 +73,7 @@ class Plus extends ConsoleClient {
     rootUrl = "https://www.googleapis.com:443/";
     _activities = new ActivitiesResource(this);
     _comments = new CommentsResource(this);
+    _moments = new MomentsResource(this);
     _people = new PeopleResource(this);
   }
 }
