@@ -457,7 +457,7 @@ class PeopleResource extends Resource {
   /**
    * List all of the people in the specified collection.
    *
-   * [userId] - Get the collection of people for the person identified. Use "me" to indiciated the authenticated user.
+   * [userId] - Get the collection of people for the person identified. Use "me" to indicate the authenticated user.
    *
    * [collection] - The collection of people to list.
    *   Allowed values:

@@ -81,6 +81,9 @@ class Activity {
   /** Identifies this resource as an activity. Value: "plus#activity". */
   String kind;
 
+  /** The location where this activity occurred. */
+  Place location;
+
   /** The object of this activity. */
   ActivityObject object;
 
@@ -141,6 +144,9 @@ class Activity {
     }
     if (json.containsKey("kind")) {
       kind = json["kind"];
+    }
+    if (json.containsKey("location")) {
+      location = new Place.fromJson(json["location"]);
     }
     if (json.containsKey("object")) {
       object = new ActivityObject.fromJson(json["object"]);
@@ -204,6 +210,9 @@ class Activity {
     }
     if (kind != null) {
       output["kind"] = kind;
+    }
+    if (location != null) {
+      output["location"] = location.toJson();
     }
     if (object != null) {
       output["object"] = object.toJson();
@@ -3237,6 +3246,128 @@ class PersonImage {
   }
 
   /** Return String representation of PersonImage */
+  String toString() => JSON.stringify(this.toJson());
+
+}
+
+class Place {
+
+  /** The physical address of the place. */
+  PlaceAddress address;
+
+  /** The display name of the place. */
+  String displayName;
+
+  /** Identifies this resource as a place. Value: "plus#place". */
+  String kind;
+
+  /** The position of the place. */
+  PlacePosition position;
+
+  /** Create new Place from JSON data */
+  Place.fromJson(Map json) {
+    if (json.containsKey("address")) {
+      address = new PlaceAddress.fromJson(json["address"]);
+    }
+    if (json.containsKey("displayName")) {
+      displayName = json["displayName"];
+    }
+    if (json.containsKey("kind")) {
+      kind = json["kind"];
+    }
+    if (json.containsKey("position")) {
+      position = new PlacePosition.fromJson(json["position"]);
+    }
+  }
+
+  /** Create JSON Object for Place */
+  Map toJson() {
+    var output = new Map();
+
+    if (address != null) {
+      output["address"] = address.toJson();
+    }
+    if (displayName != null) {
+      output["displayName"] = displayName;
+    }
+    if (kind != null) {
+      output["kind"] = kind;
+    }
+    if (position != null) {
+      output["position"] = position.toJson();
+    }
+
+    return output;
+  }
+
+  /** Return String representation of Place */
+  String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** The position of the place. */
+class PlacePosition {
+
+  /** The latitude of this position. */
+  num latitude;
+
+  /** The longitude of this position. */
+  num longitude;
+
+  /** Create new PlacePosition from JSON data */
+  PlacePosition.fromJson(Map json) {
+    if (json.containsKey("latitude")) {
+      latitude = json["latitude"];
+    }
+    if (json.containsKey("longitude")) {
+      longitude = json["longitude"];
+    }
+  }
+
+  /** Create JSON Object for PlacePosition */
+  Map toJson() {
+    var output = new Map();
+
+    if (latitude != null) {
+      output["latitude"] = latitude;
+    }
+    if (longitude != null) {
+      output["longitude"] = longitude;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of PlacePosition */
+  String toString() => JSON.stringify(this.toJson());
+
+}
+
+/** The physical address of the place. */
+class PlaceAddress {
+
+  /** The formatted address for display. */
+  String formatted;
+
+  /** Create new PlaceAddress from JSON data */
+  PlaceAddress.fromJson(Map json) {
+    if (json.containsKey("formatted")) {
+      formatted = json["formatted"];
+    }
+  }
+
+  /** Create JSON Object for PlaceAddress */
+  Map toJson() {
+    var output = new Map();
+
+    if (formatted != null) {
+      output["formatted"] = formatted;
+    }
+
+    return output;
+  }
+
+  /** Return String representation of PlaceAddress */
   String toString() => JSON.stringify(this.toJson());
 
 }
