@@ -3,16 +3,16 @@ part of plus_v1_api_client;
 class Acl {
 
   /** Description of the access granted, suitable for display. */
-  String description;
+  core.String description;
 
   /** The list of access entries. */
-  List<PlusAclentryResource> items;
+  core.List<PlusAclentryResource> items;
 
   /** Identifies this resource as a collection of access controls. Value: "plus#acl". */
-  String kind;
+  core.String kind;
 
   /** Create new Acl from JSON data */
-  Acl.fromJson(Map json) {
+  Acl.fromJson(core.Map json) {
     if (json.containsKey("description")) {
       description = json["description"];
     }
@@ -28,14 +28,14 @@ class Acl {
   }
 
   /** Create JSON Object for Acl */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (description != null) {
       output["description"] = description;
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -48,7 +48,7 @@ class Acl {
   }
 
   /** Return String representation of Acl */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -61,25 +61,25 @@ class Activity {
   ActivityActor actor;
 
   /** Street address where this activity occurred. */
-  String address;
+  core.String address;
 
   /** Additional content added by the person who shared this activity, applicable only when resharing an activity. */
-  String annotation;
+  core.String annotation;
 
   /** If this activity is a crosspost from another system, this property specifies the ID of the original activity. */
-  String crosspostSource;
+  core.String crosspostSource;
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** Latitude and longitude where this activity occurred. Format is latitude followed by longitude, space separated. */
-  String geocode;
+  core.String geocode;
 
   /** The ID of this activity. */
-  String id;
+  core.String id;
 
   /** Identifies this resource as an activity. Value: "plus#activity". */
-  String kind;
+  core.String kind;
 
   /** The location where this activity occurred. */
   Place location;
@@ -88,36 +88,36 @@ class Activity {
   ActivityObject object;
 
   /** ID of the place where this activity occurred. */
-  String placeId;
+  core.String placeId;
 
   /** Name of the place where this activity occurred. */
-  String placeName;
+  core.String placeName;
 
   /** The service provider that initially published this activity. */
   ActivityProvider provider;
 
   /** The time at which this activity was initially published. Formatted as an RFC 3339 timestamp. */
-  String published;
+  core.String published;
 
   /** Radius, in meters, of the region where this activity occurred, centered at the latitude and longitude identified in geocode. */
-  String radius;
+  core.String radius;
 
   /** Title of this activity. */
-  String title;
+  core.String title;
 
   /** The time at which this activity was last updated. Formatted as an RFC 3339 timestamp. */
-  String updated;
+  core.String updated;
 
   /** The link to this activity. */
-  String url;
+  core.String url;
 
   /** This activity's verb, indicating what action was performed. Possible values are:  
 - "post" - Publish content to the stream. 
 - "share" - Reshare an activity. */
-  String verb;
+  core.String verb;
 
   /** Create new Activity from JSON data */
-  Activity.fromJson(Map json) {
+  Activity.fromJson(core.Map json) {
     if (json.containsKey("access")) {
       access = new Acl.fromJson(json["access"]);
     }
@@ -181,8 +181,8 @@ class Activity {
   }
 
   /** Create JSON Object for Activity */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (access != null) {
       output["access"] = access.toJson();
@@ -249,7 +249,7 @@ class Activity {
   }
 
   /** Return String representation of Activity */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -257,18 +257,18 @@ class Activity {
 class ActivityProvider {
 
   /** Name of the service provider. */
-  String title;
+  core.String title;
 
   /** Create new ActivityProvider from JSON data */
-  ActivityProvider.fromJson(Map json) {
+  ActivityProvider.fromJson(core.Map json) {
     if (json.containsKey("title")) {
       title = json["title"];
     }
   }
 
   /** Create JSON Object for ActivityProvider */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (title != null) {
       output["title"] = title;
@@ -278,7 +278,7 @@ class ActivityProvider {
   }
 
   /** Return String representation of ActivityProvider */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -286,10 +286,10 @@ class ActivityProvider {
 class ActivityActor {
 
   /** The name of the actor, suitable for display. */
-  String displayName;
+  core.String displayName;
 
   /** The ID of the actor's person resource. */
-  String id;
+  core.String id;
 
   /** The image representation of the actor. */
   ActivityActorImage image;
@@ -298,10 +298,10 @@ class ActivityActor {
   ActivityActorName name;
 
   /** The link to the actor's Google profile. */
-  String url;
+  core.String url;
 
   /** Create new ActivityActor from JSON data */
-  ActivityActor.fromJson(Map json) {
+  ActivityActor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -320,8 +320,8 @@ class ActivityActor {
   }
 
   /** Create JSON Object for ActivityActor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -343,7 +343,7 @@ class ActivityActor {
   }
 
   /** Return String representation of ActivityActor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -351,13 +351,13 @@ class ActivityActor {
 class ActivityActorName {
 
   /** The family name (last name) of the actor. */
-  String familyName;
+  core.String familyName;
 
   /** The given name (first name) of the actor. */
-  String givenName;
+  core.String givenName;
 
   /** Create new ActivityActorName from JSON data */
-  ActivityActorName.fromJson(Map json) {
+  ActivityActorName.fromJson(core.Map json) {
     if (json.containsKey("familyName")) {
       familyName = json["familyName"];
     }
@@ -367,8 +367,8 @@ class ActivityActorName {
   }
 
   /** Create JSON Object for ActivityActorName */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (familyName != null) {
       output["familyName"] = familyName;
@@ -381,7 +381,7 @@ class ActivityActorName {
   }
 
   /** Return String representation of ActivityActorName */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -389,18 +389,18 @@ class ActivityActorName {
 class ActivityActorImage {
 
   /** The URL of the actor's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
-  String url;
+  core.String url;
 
   /** Create new ActivityActorImage from JSON data */
-  ActivityActorImage.fromJson(Map json) {
+  ActivityActorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for ActivityActorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -410,7 +410,7 @@ class ActivityActorImage {
   }
 
   /** Return String representation of ActivityActorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -421,21 +421,21 @@ class ActivityObject {
   ActivityObjectActor actor;
 
   /** The media objects attached to this activity. */
-  List<ActivityObjectAttachments> attachments;
+  core.List<ActivityObjectAttachments> attachments;
 
   /** The HTML-formatted content, suitable for display. */
-  String content;
+  core.String content;
 
   /** The ID of the object. When resharing an activity, this is the ID of the activity being reshared. */
-  String id;
+  core.String id;
 
   /** The type of the object. Possible values are:  
 - "note" - Textual content. 
 - "activity" - A Google+ activity. */
-  String objectType;
+  core.String objectType;
 
   /** The content (text) as provided by the author, stored without any HTML formatting. When creating or updating an activity, this value must be supplied as plain text in the request. */
-  String originalContent;
+  core.String originalContent;
 
   /** People who +1'd this activity. */
   ActivityObjectPlusoners plusoners;
@@ -447,10 +447,10 @@ class ActivityObject {
   ActivityObjectResharers resharers;
 
   /** The URL that points to the linked resource. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObject from JSON data */
-  ActivityObject.fromJson(Map json) {
+  ActivityObject.fromJson(core.Map json) {
     if (json.containsKey("actor")) {
       actor = new ActivityObjectActor.fromJson(json["actor"]);
     }
@@ -487,14 +487,14 @@ class ActivityObject {
   }
 
   /** Create JSON Object for ActivityObject */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (actor != null) {
       output["actor"] = actor.toJson();
     }
     if (attachments != null) {
-      output["attachments"] = new List();
+      output["attachments"] = new core.List();
       attachments.forEach((item) {
         output["attachments"].add(item.toJson());
       });
@@ -528,7 +528,7 @@ class ActivityObject {
   }
 
   /** Return String representation of ActivityObject */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -536,19 +536,19 @@ class ActivityObject {
 class ActivityObjectActor {
 
   /** The original actor's name, suitable for display. */
-  String displayName;
+  core.String displayName;
 
   /** ID of the original actor. */
-  String id;
+  core.String id;
 
   /** The image representation of the original actor. */
   ActivityObjectActorImage image;
 
   /** A link to the original actor's Google profile. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObjectActor from JSON data */
-  ActivityObjectActor.fromJson(Map json) {
+  ActivityObjectActor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -564,8 +564,8 @@ class ActivityObjectActor {
   }
 
   /** Create JSON Object for ActivityObjectActor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -584,7 +584,7 @@ class ActivityObjectActor {
   }
 
   /** Return String representation of ActivityObjectActor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -592,18 +592,18 @@ class ActivityObjectActor {
 class ActivityObjectActorImage {
 
   /** A URL that points to a thumbnail photo of the original actor. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObjectActorImage from JSON data */
-  ActivityObjectActorImage.fromJson(Map json) {
+  ActivityObjectActorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for ActivityObjectActorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -613,7 +613,7 @@ class ActivityObjectActorImage {
   }
 
   /** Return String representation of ActivityObjectActorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -621,13 +621,13 @@ class ActivityObjectActorImage {
 class ActivityObjectReplies {
 
   /** The URL for the collection of comments in reply to this activity. */
-  String selfLink;
+  core.String selfLink;
 
   /** Total number of comments on this activity. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new ActivityObjectReplies from JSON data */
-  ActivityObjectReplies.fromJson(Map json) {
+  ActivityObjectReplies.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -637,8 +637,8 @@ class ActivityObjectReplies {
   }
 
   /** Create JSON Object for ActivityObjectReplies */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -651,17 +651,17 @@ class ActivityObjectReplies {
   }
 
   /** Return String representation of ActivityObjectReplies */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ActivityObjectAttachments {
 
   /** If the attachment is an article, this property contains a snippet of text from the article. It can also include descriptions for other types. */
-  String content;
+  core.String content;
 
   /** The title of the attachment (such as a photo caption or an article title). */
-  String displayName;
+  core.String displayName;
 
   /** If the attachment is a video, the embeddable link. */
   ActivityObjectAttachmentsEmbed embed;
@@ -670,7 +670,7 @@ class ActivityObjectAttachments {
   ActivityObjectAttachmentsFullImage fullImage;
 
   /** The ID of the attachment. */
-  String id;
+  core.String id;
 
   /** The preview image for photos or videos. */
   ActivityObjectAttachmentsImage image;
@@ -680,16 +680,16 @@ class ActivityObjectAttachments {
 - "album" - A photo album. 
 - "video" - A video. 
 - "article" - An article, specified by a link. */
-  String objectType;
+  core.String objectType;
 
   /** If the attachment is an album, potential additional thumbnails from the album. */
-  List<ActivityObjectAttachmentsThumbnails> thumbnails;
+  core.List<ActivityObjectAttachmentsThumbnails> thumbnails;
 
   /** The link to the attachment, should be of type text/html. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObjectAttachments from JSON data */
-  ActivityObjectAttachments.fromJson(Map json) {
+  ActivityObjectAttachments.fromJson(core.Map json) {
     if (json.containsKey("content")) {
       content = json["content"];
     }
@@ -723,8 +723,8 @@ class ActivityObjectAttachments {
   }
 
   /** Create JSON Object for ActivityObjectAttachments */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (content != null) {
       output["content"] = content;
@@ -748,7 +748,7 @@ class ActivityObjectAttachments {
       output["objectType"] = objectType;
     }
     if (thumbnails != null) {
-      output["thumbnails"] = new List();
+      output["thumbnails"] = new core.List();
       thumbnails.forEach((item) {
         output["thumbnails"].add(item.toJson());
       });
@@ -761,7 +761,7 @@ class ActivityObjectAttachments {
   }
 
   /** Return String representation of ActivityObjectAttachments */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -769,19 +769,19 @@ class ActivityObjectAttachments {
 class ActivityObjectAttachmentsImage {
 
   /** The height, in pixels, of the linked resource. */
-  int height;
+  core.int height;
 
   /** Media type of the link. */
-  String type;
+  core.String type;
 
   /** Image url. */
-  String url;
+  core.String url;
 
   /** The width, in pixels, of the linked resource. */
-  int width;
+  core.int width;
 
   /** Create new ActivityObjectAttachmentsImage from JSON data */
-  ActivityObjectAttachmentsImage.fromJson(Map json) {
+  ActivityObjectAttachmentsImage.fromJson(core.Map json) {
     if (json.containsKey("height")) {
       height = json["height"];
     }
@@ -797,8 +797,8 @@ class ActivityObjectAttachmentsImage {
   }
 
   /** Create JSON Object for ActivityObjectAttachmentsImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (height != null) {
       output["height"] = height;
@@ -817,23 +817,23 @@ class ActivityObjectAttachmentsImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ActivityObjectAttachmentsThumbnails {
 
   /** Potential name of the thumbnail. */
-  String description;
+  core.String description;
 
   /** Image resource. */
   ActivityObjectAttachmentsThumbnailsImage image;
 
   /** URL to the webpage containing the image. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObjectAttachmentsThumbnails from JSON data */
-  ActivityObjectAttachmentsThumbnails.fromJson(Map json) {
+  ActivityObjectAttachmentsThumbnails.fromJson(core.Map json) {
     if (json.containsKey("description")) {
       description = json["description"];
     }
@@ -846,8 +846,8 @@ class ActivityObjectAttachmentsThumbnails {
   }
 
   /** Create JSON Object for ActivityObjectAttachmentsThumbnails */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (description != null) {
       output["description"] = description;
@@ -863,7 +863,7 @@ class ActivityObjectAttachmentsThumbnails {
   }
 
   /** Return String representation of ActivityObjectAttachmentsThumbnails */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -871,19 +871,19 @@ class ActivityObjectAttachmentsThumbnails {
 class ActivityObjectAttachmentsThumbnailsImage {
 
   /** The height, in pixels, of the linked resource. */
-  int height;
+  core.int height;
 
   /** Media type of the link. */
-  String type;
+  core.String type;
 
   /** Image url. */
-  String url;
+  core.String url;
 
   /** The width, in pixels, of the linked resource. */
-  int width;
+  core.int width;
 
   /** Create new ActivityObjectAttachmentsThumbnailsImage from JSON data */
-  ActivityObjectAttachmentsThumbnailsImage.fromJson(Map json) {
+  ActivityObjectAttachmentsThumbnailsImage.fromJson(core.Map json) {
     if (json.containsKey("height")) {
       height = json["height"];
     }
@@ -899,8 +899,8 @@ class ActivityObjectAttachmentsThumbnailsImage {
   }
 
   /** Create JSON Object for ActivityObjectAttachmentsThumbnailsImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (height != null) {
       output["height"] = height;
@@ -919,7 +919,7 @@ class ActivityObjectAttachmentsThumbnailsImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsThumbnailsImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -927,13 +927,13 @@ class ActivityObjectAttachmentsThumbnailsImage {
 class ActivityObjectAttachmentsEmbed {
 
   /** Media type of the link. */
-  String type;
+  core.String type;
 
   /** URL of the link. */
-  String url;
+  core.String url;
 
   /** Create new ActivityObjectAttachmentsEmbed from JSON data */
-  ActivityObjectAttachmentsEmbed.fromJson(Map json) {
+  ActivityObjectAttachmentsEmbed.fromJson(core.Map json) {
     if (json.containsKey("type")) {
       type = json["type"];
     }
@@ -943,8 +943,8 @@ class ActivityObjectAttachmentsEmbed {
   }
 
   /** Create JSON Object for ActivityObjectAttachmentsEmbed */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (type != null) {
       output["type"] = type;
@@ -957,7 +957,7 @@ class ActivityObjectAttachmentsEmbed {
   }
 
   /** Return String representation of ActivityObjectAttachmentsEmbed */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -965,19 +965,19 @@ class ActivityObjectAttachmentsEmbed {
 class ActivityObjectAttachmentsFullImage {
 
   /** The height, in pixels, of the linked resource. */
-  int height;
+  core.int height;
 
   /** Media type of the link. */
-  String type;
+  core.String type;
 
   /** URL to the image. */
-  String url;
+  core.String url;
 
   /** The width, in pixels, of the linked resource. */
-  int width;
+  core.int width;
 
   /** Create new ActivityObjectAttachmentsFullImage from JSON data */
-  ActivityObjectAttachmentsFullImage.fromJson(Map json) {
+  ActivityObjectAttachmentsFullImage.fromJson(core.Map json) {
     if (json.containsKey("height")) {
       height = json["height"];
     }
@@ -993,8 +993,8 @@ class ActivityObjectAttachmentsFullImage {
   }
 
   /** Create JSON Object for ActivityObjectAttachmentsFullImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (height != null) {
       output["height"] = height;
@@ -1013,7 +1013,7 @@ class ActivityObjectAttachmentsFullImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsFullImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1021,13 +1021,13 @@ class ActivityObjectAttachmentsFullImage {
 class ActivityObjectResharers {
 
   /** The URL for the collection of resharers. */
-  String selfLink;
+  core.String selfLink;
 
   /** Total number of people who reshared this activity. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new ActivityObjectResharers from JSON data */
-  ActivityObjectResharers.fromJson(Map json) {
+  ActivityObjectResharers.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -1037,8 +1037,8 @@ class ActivityObjectResharers {
   }
 
   /** Create JSON Object for ActivityObjectResharers */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -1051,7 +1051,7 @@ class ActivityObjectResharers {
   }
 
   /** Return String representation of ActivityObjectResharers */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1059,13 +1059,13 @@ class ActivityObjectResharers {
 class ActivityObjectPlusoners {
 
   /** The URL for the collection of people who +1'd this activity. */
-  String selfLink;
+  core.String selfLink;
 
   /** Total number of people who +1'd this activity. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new ActivityObjectPlusoners from JSON data */
-  ActivityObjectPlusoners.fromJson(Map json) {
+  ActivityObjectPlusoners.fromJson(core.Map json) {
     if (json.containsKey("selfLink")) {
       selfLink = json["selfLink"];
     }
@@ -1075,8 +1075,8 @@ class ActivityObjectPlusoners {
   }
 
   /** Create JSON Object for ActivityObjectPlusoners */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (selfLink != null) {
       output["selfLink"] = selfLink;
@@ -1089,41 +1089,41 @@ class ActivityObjectPlusoners {
   }
 
   /** Return String representation of ActivityObjectPlusoners */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class ActivityFeed {
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The ID of this collection of activities. Deprecated. */
-  String id;
+  core.String id;
 
   /** The activities in this page of results. */
-  List<Activity> items;
+  core.List<Activity> items;
 
   /** Identifies this resource as a collection of activities. Value: "plus#activityFeed". */
-  String kind;
+  core.String kind;
 
   /** Link to the next page of activities. */
-  String nextLink;
+  core.String nextLink;
 
   /** The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** Link to this activity resource. */
-  String selfLink;
+  core.String selfLink;
 
   /** The title of this collection of activities. */
-  String title;
+  core.String title;
 
   /** The time at which this collection of activities was last updated. Formatted as an RFC 3339 timestamp. */
-  String updated;
+  core.String updated;
 
   /** Create new ActivityFeed from JSON data */
-  ActivityFeed.fromJson(Map json) {
+  ActivityFeed.fromJson(core.Map json) {
     if (json.containsKey("etag")) {
       etag = json["etag"];
     }
@@ -1157,8 +1157,8 @@ class ActivityFeed {
   }
 
   /** Create JSON Object for ActivityFeed */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (etag != null) {
       output["etag"] = etag;
@@ -1167,7 +1167,7 @@ class ActivityFeed {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -1195,7 +1195,7 @@ class ActivityFeed {
   }
 
   /** Return String representation of ActivityFeed */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1205,16 +1205,16 @@ class Comment {
   CommentActor actor;
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The ID of this comment. */
-  String id;
+  core.String id;
 
   /** The activity this comment replied to. */
-  List<CommentInReplyTo> inReplyTo;
+  core.List<CommentInReplyTo> inReplyTo;
 
   /** Identifies this resource as a comment. Value: "plus#comment". */
-  String kind;
+  core.String kind;
 
   /** The object of this comment. */
   CommentObject object;
@@ -1223,20 +1223,20 @@ class Comment {
   CommentPlusoners plusoners;
 
   /** The time at which this comment was initially published. Formatted as an RFC 3339 timestamp. */
-  String published;
+  core.String published;
 
   /** Link to this comment resource. */
-  String selfLink;
+  core.String selfLink;
 
   /** The time at which this comment was last updated. Formatted as an RFC 3339 timestamp. */
-  String updated;
+  core.String updated;
 
   /** This comment's verb, indicating what action was performed. Possible values are:  
 - "post" - Publish content to the stream. */
-  String verb;
+  core.String verb;
 
   /** Create new Comment from JSON data */
-  Comment.fromJson(Map json) {
+  Comment.fromJson(core.Map json) {
     if (json.containsKey("actor")) {
       actor = new CommentActor.fromJson(json["actor"]);
     }
@@ -1276,8 +1276,8 @@ class Comment {
   }
 
   /** Create JSON Object for Comment */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (actor != null) {
       output["actor"] = actor.toJson();
@@ -1289,7 +1289,7 @@ class Comment {
       output["id"] = id;
     }
     if (inReplyTo != null) {
-      output["inReplyTo"] = new List();
+      output["inReplyTo"] = new core.List();
       inReplyTo.forEach((item) {
         output["inReplyTo"].add(item.toJson());
       });
@@ -1320,7 +1320,7 @@ class Comment {
   }
 
   /** Return String representation of Comment */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1328,19 +1328,19 @@ class Comment {
 class CommentActor {
 
   /** The name of this actor, suitable for display. */
-  String displayName;
+  core.String displayName;
 
   /** The ID of the actor. */
-  String id;
+  core.String id;
 
   /** The image representation of this actor. */
   CommentActorImage image;
 
   /** A link to the person resource for this actor. */
-  String url;
+  core.String url;
 
   /** Create new CommentActor from JSON data */
-  CommentActor.fromJson(Map json) {
+  CommentActor.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -1356,8 +1356,8 @@ class CommentActor {
   }
 
   /** Create JSON Object for CommentActor */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -1376,7 +1376,7 @@ class CommentActor {
   }
 
   /** Return String representation of CommentActor */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1384,18 +1384,18 @@ class CommentActor {
 class CommentActorImage {
 
   /** The URL of the actor's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
-  String url;
+  core.String url;
 
   /** Create new CommentActorImage from JSON data */
-  CommentActorImage.fromJson(Map json) {
+  CommentActorImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for CommentActorImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -1405,7 +1405,7 @@ class CommentActorImage {
   }
 
   /** Return String representation of CommentActorImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1413,18 +1413,18 @@ class CommentActorImage {
 class CommentPlusoners {
 
   /** Total number of people who +1'd this comment. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new CommentPlusoners from JSON data */
-  CommentPlusoners.fromJson(Map json) {
+  CommentPlusoners.fromJson(core.Map json) {
     if (json.containsKey("totalItems")) {
       totalItems = json["totalItems"];
     }
   }
 
   /** Create JSON Object for CommentPlusoners */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (totalItems != null) {
       output["totalItems"] = totalItems;
@@ -1434,20 +1434,20 @@ class CommentPlusoners {
   }
 
   /** Return String representation of CommentPlusoners */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class CommentInReplyTo {
 
   /** The ID of the activity. */
-  String id;
+  core.String id;
 
   /** The URL of the activity. */
-  String url;
+  core.String url;
 
   /** Create new CommentInReplyTo from JSON data */
-  CommentInReplyTo.fromJson(Map json) {
+  CommentInReplyTo.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
@@ -1457,8 +1457,8 @@ class CommentInReplyTo {
   }
 
   /** Create JSON Object for CommentInReplyTo */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -1471,7 +1471,7 @@ class CommentInReplyTo {
   }
 
   /** Return String representation of CommentInReplyTo */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1479,17 +1479,17 @@ class CommentInReplyTo {
 class CommentObject {
 
   /** The HTML-formatted content, suitable for display. */
-  String content;
+  core.String content;
 
   /** The object type of this comment. Possible values are:  
 - "comment" - A comment in reply to an activity. */
-  String objectType;
+  core.String objectType;
 
   /** The content (text) as provided by the author, stored without any HTML formatting. When creating or updating a comment, this value must be supplied as plain text in the request. */
-  String originalContent;
+  core.String originalContent;
 
   /** Create new CommentObject from JSON data */
-  CommentObject.fromJson(Map json) {
+  CommentObject.fromJson(core.Map json) {
     if (json.containsKey("content")) {
       content = json["content"];
     }
@@ -1502,8 +1502,8 @@ class CommentObject {
   }
 
   /** Create JSON Object for CommentObject */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (content != null) {
       output["content"] = content;
@@ -1519,38 +1519,38 @@ class CommentObject {
   }
 
   /** Return String representation of CommentObject */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class CommentFeed {
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The ID of this collection of comments. */
-  String id;
+  core.String id;
 
   /** The comments in this page of results. */
-  List<Comment> items;
+  core.List<Comment> items;
 
   /** Identifies this resource as a collection of comments. Value: "plus#commentFeed". */
-  String kind;
+  core.String kind;
 
   /** Link to the next page of activities. */
-  String nextLink;
+  core.String nextLink;
 
   /** The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** The title of this collection of comments. */
-  String title;
+  core.String title;
 
   /** The time at which this collection of comments was last updated. Formatted as an RFC 3339 timestamp. */
-  String updated;
+  core.String updated;
 
   /** Create new CommentFeed from JSON data */
-  CommentFeed.fromJson(Map json) {
+  CommentFeed.fromJson(core.Map json) {
     if (json.containsKey("etag")) {
       etag = json["etag"];
     }
@@ -1581,8 +1581,8 @@ class CommentFeed {
   }
 
   /** Create JSON Object for CommentFeed */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (etag != null) {
       output["etag"] = etag;
@@ -1591,7 +1591,7 @@ class CommentFeed {
       output["id"] = id;
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -1616,7 +1616,7 @@ class CommentFeed {
   }
 
   /** Return String representation of CommentFeed */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -1626,169 +1626,169 @@ class ItemScope {
   ItemScope about;
 
   /** An additional name for a Person, can be used for a middle name. */
-  List<String> additionalName;
+  core.List<core.String> additionalName;
 
   /** Postal address. */
   ItemScope address;
 
   /** Address country. */
-  String addressCountry;
+  core.String addressCountry;
 
   /** Address locality. */
-  String addressLocality;
+  core.String addressLocality;
 
   /** Address region. */
-  String addressRegion;
+  core.String addressRegion;
 
   /** The encoding. */
-  List<ItemScope> associated_media;
+  core.List<ItemScope> associated_media;
 
   /** Number of attendees. */
-  int attendeeCount;
+  core.int attendeeCount;
 
   /** A person attending the event. */
-  List<ItemScope> attendees;
+  core.List<ItemScope> attendees;
 
   /** From http://schema.org/MusicRecording, the audio file. */
   ItemScope audio;
 
   /** The person or persons who created this result. In the example of restaurant reviews, this might be the reviewer's name. */
-  List<ItemScope> author;
+  core.List<ItemScope> author;
 
   /** Best possible rating value that a result might obtain. This property defines the upper bound for the ratingValue. For example, you might have a 5 star rating scale, you would provide 5 as the value for this property. */
-  String bestRating;
+  core.String bestRating;
 
   /** Date of birth. */
-  String birthDate;
+  core.String birthDate;
 
   /** From http://schema.org/MusicRecording, the artist that performed this recording. */
   ItemScope byArtist;
 
   /** The caption for this object. */
-  String caption;
+  core.String caption;
 
   /** File size in (mega/kilo) bytes. */
-  String contentSize;
+  core.String contentSize;
 
   /** Actual bytes of the media object, for example the image file or video file. */
-  String contentUrl;
+  core.String contentUrl;
 
   /** A list of contributors to this result. */
-  List<ItemScope> contributor;
+  core.List<ItemScope> contributor;
 
   /** The date the result was created such as the date that a review was first created. */
-  String dateCreated;
+  core.String dateCreated;
 
   /** The date the result was last modified such as the date that a review was last edited. */
-  String dateModified;
+  core.String dateModified;
 
   /** The initial date that the result was published. For example, a user writes a comment on a blog, which has a result.dateCreated of when they submit it. If the blog users comment moderation, the result.datePublished value would match the date when the owner approved the message. */
-  String datePublished;
+  core.String datePublished;
 
   /** The string that describes the content of the result. */
-  String description;
+  core.String description;
 
   /** The duration of the item (movie, audio recording, event, etc.) in ISO 8601 date format. */
-  String duration;
+  core.String duration;
 
   /** A URL pointing to a player for a specific video. In general, this is the information in the src element of an embed tag and should not be the same as the content of the loc tag. */
-  String embedUrl;
+  core.String embedUrl;
 
   /** The end date and time of the event (in ISO 8601 date format). */
-  String endDate;
+  core.String endDate;
 
   /** Family name. This property can be used with givenName instead of the name property. */
-  String familyName;
+  core.String familyName;
 
   /** Gender of the person. */
-  String gender;
+  core.String gender;
 
   /** Geo coordinates. */
   ItemScope geo;
 
   /** Given name. This property can be used with familyName instead of the name property. */
-  String givenName;
+  core.String givenName;
 
   /** The height of the media object. */
-  String height;
+  core.String height;
 
   /** An identifier for the target. Your app can choose how to identify targets. The target.id is required if you are writing an activity that does not have a corresponding web page or target.url property. */
-  String id;
+  core.String id;
 
   /** A URL to the image that represents this result. For example, if a user writes a review of a restaurant and attaches a photo of their meal, you might use that photo as the result.image. */
-  String image;
+  core.String image;
 
   /** From http://schema.org/MusicRecording, which album a song is in. */
   ItemScope inAlbum;
 
   /** Identifies this resource as an itemScope. */
-  String kind;
+  core.String kind;
 
   /** Latitude. */
-  num latitude;
+  core.num latitude;
 
   /** The location of the event or organization. */
   ItemScope location;
 
   /** Longitude. */
-  num longitude;
+  core.num longitude;
 
   /** The name of the result. In the example of a restaurant review, this might be the summary the user gave their review such as "Great ambiance, but overpriced." */
-  String name;
+  core.String name;
 
   /** Property of http://schema.org/TVEpisode indicating which series the episode belongs to. */
   ItemScope partOfTVSeries;
 
   /** The main performer or performers of the event-for example, a presenter, musician, or actor. */
-  List<ItemScope> performers;
+  core.List<ItemScope> performers;
 
   /** Player type that is required. For example: Flash or Silverlight. */
-  String playerType;
+  core.String playerType;
 
   /** Post office box number. */
-  String postOfficeBoxNumber;
+  core.String postOfficeBoxNumber;
 
   /** Postal code. */
-  String postalCode;
+  core.String postalCode;
 
   /** Rating value. */
-  String ratingValue;
+  core.String ratingValue;
 
   /** Review rating. */
   ItemScope reviewRating;
 
   /** The start date and time of the event (in ISO 8601 date format). */
-  String startDate;
+  core.String startDate;
 
   /** Street address. */
-  String streetAddress;
+  core.String streetAddress;
 
   /** The text that is the result of the app activity. For example, if a user leaves a review of a restaurant, this might be the text of the review. */
-  String text;
+  core.String text;
 
   /** Thumbnail image for an image or video. */
   ItemScope thumbnail;
 
   /** A URL to a thumbnail image that represents this result. */
-  String thumbnailUrl;
+  core.String thumbnailUrl;
 
   /** The exchange traded instrument associated with a Corporation object. The tickerSymbol is expressed as an exchange and an instrument name separated by a space character. For the exchange component of the tickerSymbol attribute, we reccommend using the controlled vocaulary of Market Identifier Codes (MIC) specified in ISO15022. */
-  String tickerSymbol;
+  core.String tickerSymbol;
 
   /** The schema.org URL that best describes the referenced target and matches the type of moment. */
-  String type;
+  core.String type;
 
   /** The URL that points to the result object. For example, a permalink directly to a restaurant reviewer's comment. */
-  String url;
+  core.String url;
 
   /** The width of the media object. */
-  String width;
+  core.String width;
 
   /** Worst possible rating value that a result might obtain. This property defines the lower bound for the ratingValue. */
-  String worstRating;
+  core.String worstRating;
 
   /** Create new ItemScope from JSON data */
-  ItemScope.fromJson(Map json) {
+  ItemScope.fromJson(core.Map json) {
     if (json.containsKey("about")) {
       about = new ItemScope.fromJson(json["about"]);
     }
@@ -1975,14 +1975,14 @@ class ItemScope {
   }
 
   /** Create JSON Object for ItemScope */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (about != null) {
       output["about"] = about.toJson();
     }
     if (additionalName != null) {
-      output["additionalName"] = new List();
+      output["additionalName"] = new core.List();
       additionalName.forEach((item) {
         output["additionalName"].add(item);
       });
@@ -2000,7 +2000,7 @@ class ItemScope {
       output["addressRegion"] = addressRegion;
     }
     if (associated_media != null) {
-      output["associated_media"] = new List();
+      output["associated_media"] = new core.List();
       associated_media.forEach((item) {
         output["associated_media"].add(item.toJson());
       });
@@ -2009,7 +2009,7 @@ class ItemScope {
       output["attendeeCount"] = attendeeCount;
     }
     if (attendees != null) {
-      output["attendees"] = new List();
+      output["attendees"] = new core.List();
       attendees.forEach((item) {
         output["attendees"].add(item.toJson());
       });
@@ -2018,7 +2018,7 @@ class ItemScope {
       output["audio"] = audio.toJson();
     }
     if (author != null) {
-      output["author"] = new List();
+      output["author"] = new core.List();
       author.forEach((item) {
         output["author"].add(item.toJson());
       });
@@ -2042,7 +2042,7 @@ class ItemScope {
       output["contentUrl"] = contentUrl;
     }
     if (contributor != null) {
-      output["contributor"] = new List();
+      output["contributor"] = new core.List();
       contributor.forEach((item) {
         output["contributor"].add(item.toJson());
       });
@@ -2111,7 +2111,7 @@ class ItemScope {
       output["partOfTVSeries"] = partOfTVSeries.toJson();
     }
     if (performers != null) {
-      output["performers"] = new List();
+      output["performers"] = new core.List();
       performers.forEach((item) {
         output["performers"].add(item.toJson());
       });
@@ -2166,32 +2166,32 @@ class ItemScope {
   }
 
   /** Return String representation of ItemScope */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Moment {
 
   /** The moment ID. */
-  String id;
+  core.String id;
 
   /** Identifies this resource as a moment. */
-  String kind;
+  core.String kind;
 
   /** The object generated by performing the action on the target. For example, a user writes a review of a restaurant, the target is the restaurant and the result is the review. */
   ItemScope result;
 
   /** Time stamp of when the action occurred in RFC3339 format. */
-  String startDate;
+  core.String startDate;
 
   /** The object on which the action was performed. */
   ItemScope target;
 
   /** The Google schema for the type of moment to write. For example, http://schemas.google.com/AddActivity. */
-  String type;
+  core.String type;
 
   /** Create new Moment from JSON data */
-  Moment.fromJson(Map json) {
+  Moment.fromJson(core.Map json) {
     if (json.containsKey("id")) {
       id = json["id"];
     }
@@ -2213,8 +2213,8 @@ class Moment {
   }
 
   /** Create JSON Object for Moment */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (id != null) {
       output["id"] = id;
@@ -2239,38 +2239,38 @@ class Moment {
   }
 
   /** Return String representation of Moment */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class MomentsFeed {
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The moments in this page of results. */
-  List<Moment> items;
+  core.List<Moment> items;
 
   /** Identifies this resource as a collection of moments. Value: "plus#momentsFeed". */
-  String kind;
+  core.String kind;
 
   /** Link to the next page of moments. */
-  String nextLink;
+  core.String nextLink;
 
   /** The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** Link to this page of moments. */
-  String selfLink;
+  core.String selfLink;
 
   /** The title of this collection of moments. */
-  String title;
+  core.String title;
 
   /** The RFC 339 timestamp for when this collection of moments was last updated. */
-  String updated;
+  core.String updated;
 
   /** Create new MomentsFeed from JSON data */
-  MomentsFeed.fromJson(Map json) {
+  MomentsFeed.fromJson(core.Map json) {
     if (json.containsKey("etag")) {
       etag = json["etag"];
     }
@@ -2301,14 +2301,14 @@ class MomentsFeed {
   }
 
   /** Create JSON Object for MomentsFeed */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (etag != null) {
       output["etag"] = etag;
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -2336,35 +2336,35 @@ class MomentsFeed {
   }
 
   /** Return String representation of MomentsFeed */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PeopleFeed {
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The people in this page of results. Each item includes the id, displayName, image, and url for the person. To retrieve additional profile data, see the people.get method. */
-  List<Person> items;
+  core.List<Person> items;
 
   /** Identifies this resource as a collection of people. Value: "plus#peopleFeed". */
-  String kind;
+  core.String kind;
 
   /** The continuation token, which is used to page through large result sets. Provide this value in a subsequent request to return the next page of results. */
-  String nextPageToken;
+  core.String nextPageToken;
 
   /** Link to this resource. */
-  String selfLink;
+  core.String selfLink;
 
   /** The title of this collection of people. */
-  String title;
+  core.String title;
 
   /** The total number of people available in this list. The number of people in a response might be smaller due to paging. This might not be set for all collections. */
-  int totalItems;
+  core.int totalItems;
 
   /** Create new PeopleFeed from JSON data */
-  PeopleFeed.fromJson(Map json) {
+  PeopleFeed.fromJson(core.Map json) {
     if (json.containsKey("etag")) {
       etag = json["etag"];
     }
@@ -2392,14 +2392,14 @@ class PeopleFeed {
   }
 
   /** Create JSON Object for PeopleFeed */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (etag != null) {
       output["etag"] = etag;
     }
     if (items != null) {
-      output["items"] = new List();
+      output["items"] = new core.List();
       items.forEach((item) {
         output["items"].add(item.toJson());
       });
@@ -2424,85 +2424,85 @@ class PeopleFeed {
   }
 
   /** Return String representation of PeopleFeed */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class Person {
 
   /** A short biography for this person. */
-  String aboutMe;
+  core.String aboutMe;
 
   /** The age range of the person. */
   PersonAgeRange ageRange;
 
   /** The person's date of birth, represented as YYYY-MM-DD. */
-  String birthday;
+  core.String birthday;
 
   /** The "bragging rights" line of this person. */
-  String braggingRights;
+  core.String braggingRights;
 
   /** If a Google+ Page and for followers who are visible, the number of people who have added this page to a circle. */
-  int circledByCount;
+  core.int circledByCount;
 
   /** The cover photo content. */
   PersonCover cover;
 
   /** The current location for this person. */
-  String currentLocation;
+  core.String currentLocation;
 
   /** The name of this person, suitable for display. */
-  String displayName;
+  core.String displayName;
 
   /** A list of email addresses that this person has set to public on their Google+ profile. You can also use the userinfo.email scope to retrieve an authenticated user's email address. */
-  List<PersonEmails> emails;
+  core.List<PersonEmails> emails;
 
   /** ETag of this response for caching purposes. */
-  String etag;
+  core.String etag;
 
   /** The person's gender. Possible values are:  
 - "male" - Male gender. 
 - "female" - Female gender. 
 - "other" - Other. */
-  String gender;
+  core.String gender;
 
   /** If "true", indicates that the person has installed the app that is making the request and has chosen to expose this install state to the caller. A value of "false" indicates that the install state cannot be determined (it is either not installed or the person has chosen to keep this information private). */
-  bool hasApp;
+  core.bool hasApp;
 
   /** The ID of this person. */
-  String id;
+  core.String id;
 
   /** The representation of the person's profile photo. */
   PersonImage image;
 
   /** Whether this user has signed up for Google+. */
-  bool isPlusUser;
+  core.bool isPlusUser;
 
   /** Identifies this resource as a person. Value: "plus#person". */
-  String kind;
+  core.String kind;
 
   /** The user's preferred language for rendering. */
-  String language;
+  core.String language;
 
   /** An object representation of the individual components of a person's name. */
   PersonName name;
 
   /** The nickname of this person. */
-  String nickname;
+  core.String nickname;
 
   /** Type of person within Google+. Possible values are:  
 - "person" - represents an actual person. 
 - "page" - represents a page. */
-  String objectType;
+  core.String objectType;
 
   /** A list of current or past organizations with which this person is associated. */
-  List<PersonOrganizations> organizations;
+  core.List<PersonOrganizations> organizations;
 
   /** A list of places where this person has lived. */
-  List<PersonPlacesLived> placesLived;
+  core.List<PersonPlacesLived> placesLived;
 
   /** If a Google+ Page, the number of people who have +1'ed this page. */
-  int plusOneCount;
+  core.int plusOneCount;
 
   /** The person's relationship status. Possible values are:  
 - "single" - Person is single. 
@@ -2514,22 +2514,22 @@ class Person {
 - "widowed" - Person is widowed. 
 - "in_domestic_partnership" - Person is in a domestic partnership. 
 - "in_civil_union" - Person is in a civil union. */
-  String relationshipStatus;
+  core.String relationshipStatus;
 
   /** The brief description (tagline) of this person. */
-  String tagline;
+  core.String tagline;
 
   /** The URL of this person's profile. */
-  String url;
+  core.String url;
 
   /** A list of URLs for this person. */
-  List<PersonUrls> urls;
+  core.List<PersonUrls> urls;
 
   /** Whether the person or Google+ Page has been verified. */
-  bool verified;
+  core.bool verified;
 
   /** Create new Person from JSON data */
-  Person.fromJson(Map json) {
+  Person.fromJson(core.Map json) {
     if (json.containsKey("aboutMe")) {
       aboutMe = json["aboutMe"];
     }
@@ -2629,8 +2629,8 @@ class Person {
   }
 
   /** Create JSON Object for Person */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (aboutMe != null) {
       output["aboutMe"] = aboutMe;
@@ -2657,7 +2657,7 @@ class Person {
       output["displayName"] = displayName;
     }
     if (emails != null) {
-      output["emails"] = new List();
+      output["emails"] = new core.List();
       emails.forEach((item) {
         output["emails"].add(item.toJson());
       });
@@ -2696,13 +2696,13 @@ class Person {
       output["objectType"] = objectType;
     }
     if (organizations != null) {
-      output["organizations"] = new List();
+      output["organizations"] = new core.List();
       organizations.forEach((item) {
         output["organizations"].add(item.toJson());
       });
     }
     if (placesLived != null) {
-      output["placesLived"] = new List();
+      output["placesLived"] = new core.List();
       placesLived.forEach((item) {
         output["placesLived"].add(item.toJson());
       });
@@ -2720,7 +2720,7 @@ class Person {
       output["url"] = url;
     }
     if (urls != null) {
-      output["urls"] = new List();
+      output["urls"] = new core.List();
       urls.forEach((item) {
         output["urls"].add(item.toJson());
       });
@@ -2733,7 +2733,7 @@ class Person {
   }
 
   /** Return String representation of Person */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -2748,10 +2748,10 @@ class PersonCover {
 
   /** The layout of the cover art. Possible values are:  
 - "banner" - One large image banner. */
-  String layout;
+  core.String layout;
 
   /** Create new PersonCover from JSON data */
-  PersonCover.fromJson(Map json) {
+  PersonCover.fromJson(core.Map json) {
     if (json.containsKey("coverInfo")) {
       coverInfo = new PersonCoverCoverInfo.fromJson(json["coverInfo"]);
     }
@@ -2764,8 +2764,8 @@ class PersonCover {
   }
 
   /** Create JSON Object for PersonCover */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (coverInfo != null) {
       output["coverInfo"] = coverInfo.toJson();
@@ -2781,7 +2781,7 @@ class PersonCover {
   }
 
   /** Return String representation of PersonCover */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -2789,13 +2789,13 @@ class PersonCover {
 class PersonCoverCoverInfo {
 
   /** The difference between the left position of the image cover and the actual displayed cover image. Only valid for BANNER layout. */
-  int leftImageOffset;
+  core.int leftImageOffset;
 
   /** The difference between the top position of the image cover and the actual displayed cover image. Only valid for BANNER layout. */
-  int topImageOffset;
+  core.int topImageOffset;
 
   /** Create new PersonCoverCoverInfo from JSON data */
-  PersonCoverCoverInfo.fromJson(Map json) {
+  PersonCoverCoverInfo.fromJson(core.Map json) {
     if (json.containsKey("leftImageOffset")) {
       leftImageOffset = json["leftImageOffset"];
     }
@@ -2805,8 +2805,8 @@ class PersonCoverCoverInfo {
   }
 
   /** Create JSON Object for PersonCoverCoverInfo */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (leftImageOffset != null) {
       output["leftImageOffset"] = leftImageOffset;
@@ -2819,7 +2819,7 @@ class PersonCoverCoverInfo {
   }
 
   /** Return String representation of PersonCoverCoverInfo */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -2827,16 +2827,16 @@ class PersonCoverCoverInfo {
 class PersonCoverCoverPhoto {
 
   /** The height to the image. */
-  int height;
+  core.int height;
 
   /** The url to the image. */
-  String url;
+  core.String url;
 
   /** The width to the image. */
-  int width;
+  core.int width;
 
   /** Create new PersonCoverCoverPhoto from JSON data */
-  PersonCoverCoverPhoto.fromJson(Map json) {
+  PersonCoverCoverPhoto.fromJson(core.Map json) {
     if (json.containsKey("height")) {
       height = json["height"];
     }
@@ -2849,8 +2849,8 @@ class PersonCoverCoverPhoto {
   }
 
   /** Create JSON Object for PersonCoverCoverPhoto */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (height != null) {
       output["height"] = height;
@@ -2866,7 +2866,7 @@ class PersonCoverCoverPhoto {
   }
 
   /** Return String representation of PersonCoverCoverPhoto */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -2874,25 +2874,25 @@ class PersonCoverCoverPhoto {
 class PersonName {
 
   /** The family name (last name) of this person. */
-  String familyName;
+  core.String familyName;
 
   /** The full name of this person, including middle names, suffixes, etc. */
-  String formatted;
+  core.String formatted;
 
   /** The given name (first name) of this person. */
-  String givenName;
+  core.String givenName;
 
   /** The honorific prefixes (such as "Dr." or "Mrs.") for this person. */
-  String honorificPrefix;
+  core.String honorificPrefix;
 
   /** The honorific suffixes (such as "Jr.") for this person. */
-  String honorificSuffix;
+  core.String honorificSuffix;
 
   /** The middle name of this person. */
-  String middleName;
+  core.String middleName;
 
   /** Create new PersonName from JSON data */
-  PersonName.fromJson(Map json) {
+  PersonName.fromJson(core.Map json) {
     if (json.containsKey("familyName")) {
       familyName = json["familyName"];
     }
@@ -2914,8 +2914,8 @@ class PersonName {
   }
 
   /** Create JSON Object for PersonName */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (familyName != null) {
       output["familyName"] = familyName;
@@ -2940,26 +2940,26 @@ class PersonName {
   }
 
   /** Return String representation of PersonName */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PersonEmails {
 
   /** If "true", indicates this email address is the person's primary one. */
-  bool primary;
+  core.bool primary;
 
   /** The type of address. Possible values are:  
 - "home" - Home email address. 
 - "work" - Work email address. 
 - "other" - Other. */
-  String type;
+  core.String type;
 
   /** The email address. */
-  String value;
+  core.String value;
 
   /** Create new PersonEmails from JSON data */
-  PersonEmails.fromJson(Map json) {
+  PersonEmails.fromJson(core.Map json) {
     if (json.containsKey("primary")) {
       primary = json["primary"];
     }
@@ -2972,8 +2972,8 @@ class PersonEmails {
   }
 
   /** Create JSON Object for PersonEmails */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (primary != null) {
       output["primary"] = primary;
@@ -2989,14 +2989,14 @@ class PersonEmails {
   }
 
   /** Return String representation of PersonEmails */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PersonUrls {
 
   /** If "true", this URL is the person's primary URL. */
-  bool primary;
+  core.bool primary;
 
   /** The type of URL. Possible values are:  
 - "home" - URL for home. 
@@ -3004,13 +3004,13 @@ class PersonUrls {
 - "blog" - URL for blog. 
 - "profile" - URL for profile. 
 - "other" - Other. */
-  String type;
+  core.String type;
 
   /** The URL value. */
-  String value;
+  core.String value;
 
   /** Create new PersonUrls from JSON data */
-  PersonUrls.fromJson(Map json) {
+  PersonUrls.fromJson(core.Map json) {
     if (json.containsKey("primary")) {
       primary = json["primary"];
     }
@@ -3023,8 +3023,8 @@ class PersonUrls {
   }
 
   /** Create JSON Object for PersonUrls */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (primary != null) {
       output["primary"] = primary;
@@ -3040,20 +3040,20 @@ class PersonUrls {
   }
 
   /** Return String representation of PersonUrls */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PersonPlacesLived {
 
   /** If "true", this place of residence is this person's primary residence. */
-  bool primary;
+  core.bool primary;
 
   /** A place where this person has lived. For example: "Seattle, WA", "Near Toronto". */
-  String value;
+  core.String value;
 
   /** Create new PersonPlacesLived from JSON data */
-  PersonPlacesLived.fromJson(Map json) {
+  PersonPlacesLived.fromJson(core.Map json) {
     if (json.containsKey("primary")) {
       primary = json["primary"];
     }
@@ -3063,8 +3063,8 @@ class PersonPlacesLived {
   }
 
   /** Create JSON Object for PersonPlacesLived */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (primary != null) {
       output["primary"] = primary;
@@ -3077,7 +3077,7 @@ class PersonPlacesLived {
   }
 
   /** Return String representation of PersonPlacesLived */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -3085,13 +3085,13 @@ class PersonPlacesLived {
 class PersonAgeRange {
 
   /** The age range's upper bound, if any. */
-  int max;
+  core.int max;
 
   /** The age range's lower bound, if any. */
-  int min;
+  core.int min;
 
   /** Create new PersonAgeRange from JSON data */
-  PersonAgeRange.fromJson(Map json) {
+  PersonAgeRange.fromJson(core.Map json) {
     if (json.containsKey("max")) {
       max = json["max"];
     }
@@ -3101,8 +3101,8 @@ class PersonAgeRange {
   }
 
   /** Create JSON Object for PersonAgeRange */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (max != null) {
       output["max"] = max;
@@ -3115,43 +3115,43 @@ class PersonAgeRange {
   }
 
   /** Return String representation of PersonAgeRange */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PersonOrganizations {
 
   /** The department within the organization. Deprecated. */
-  String department;
+  core.String department;
 
   /** A short description of the person's role in this organization. Deprecated. */
-  String description;
+  core.String description;
 
   /** The date the person left this organization. */
-  String endDate;
+  core.String endDate;
 
   /** The location of this organization. Deprecated. */
-  String location;
+  core.String location;
 
   /** The name of the organization. */
-  String name;
+  core.String name;
 
   /** If "true", indicates this organization is the person's primary one (typically interpreted as current one). */
-  bool primary;
+  core.bool primary;
 
   /** The date the person joined this organization. */
-  String startDate;
+  core.String startDate;
 
   /** The person's job title or role within the organization. */
-  String title;
+  core.String title;
 
   /** The type of organization. Possible values are:  
 - "work" - Work. 
 - "school" - School. */
-  String type;
+  core.String type;
 
   /** Create new PersonOrganizations from JSON data */
-  PersonOrganizations.fromJson(Map json) {
+  PersonOrganizations.fromJson(core.Map json) {
     if (json.containsKey("department")) {
       department = json["department"];
     }
@@ -3182,8 +3182,8 @@ class PersonOrganizations {
   }
 
   /** Create JSON Object for PersonOrganizations */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (department != null) {
       output["department"] = department;
@@ -3217,7 +3217,7 @@ class PersonOrganizations {
   }
 
   /** Return String representation of PersonOrganizations */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -3225,18 +3225,18 @@ class PersonOrganizations {
 class PersonImage {
 
   /** The URL of the person's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
-  String url;
+  core.String url;
 
   /** Create new PersonImage from JSON data */
-  PersonImage.fromJson(Map json) {
+  PersonImage.fromJson(core.Map json) {
     if (json.containsKey("url")) {
       url = json["url"];
     }
   }
 
   /** Create JSON Object for PersonImage */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (url != null) {
       output["url"] = url;
@@ -3246,7 +3246,7 @@ class PersonImage {
   }
 
   /** Return String representation of PersonImage */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -3256,16 +3256,16 @@ class Place {
   PlaceAddress address;
 
   /** The display name of the place. */
-  String displayName;
+  core.String displayName;
 
   /** Identifies this resource as a place. Value: "plus#place". */
-  String kind;
+  core.String kind;
 
   /** The position of the place. */
   PlacePosition position;
 
   /** Create new Place from JSON data */
-  Place.fromJson(Map json) {
+  Place.fromJson(core.Map json) {
     if (json.containsKey("address")) {
       address = new PlaceAddress.fromJson(json["address"]);
     }
@@ -3281,8 +3281,8 @@ class Place {
   }
 
   /** Create JSON Object for Place */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (address != null) {
       output["address"] = address.toJson();
@@ -3301,7 +3301,7 @@ class Place {
   }
 
   /** Return String representation of Place */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -3309,13 +3309,13 @@ class Place {
 class PlacePosition {
 
   /** The latitude of this position. */
-  num latitude;
+  core.num latitude;
 
   /** The longitude of this position. */
-  num longitude;
+  core.num longitude;
 
   /** Create new PlacePosition from JSON data */
-  PlacePosition.fromJson(Map json) {
+  PlacePosition.fromJson(core.Map json) {
     if (json.containsKey("latitude")) {
       latitude = json["latitude"];
     }
@@ -3325,8 +3325,8 @@ class PlacePosition {
   }
 
   /** Create JSON Object for PlacePosition */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (latitude != null) {
       output["latitude"] = latitude;
@@ -3339,7 +3339,7 @@ class PlacePosition {
   }
 
   /** Return String representation of PlacePosition */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
@@ -3347,18 +3347,18 @@ class PlacePosition {
 class PlaceAddress {
 
   /** The formatted address for display. */
-  String formatted;
+  core.String formatted;
 
   /** Create new PlaceAddress from JSON data */
-  PlaceAddress.fromJson(Map json) {
+  PlaceAddress.fromJson(core.Map json) {
     if (json.containsKey("formatted")) {
       formatted = json["formatted"];
     }
   }
 
   /** Create JSON Object for PlaceAddress */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (formatted != null) {
       output["formatted"] = formatted;
@@ -3368,17 +3368,17 @@ class PlaceAddress {
   }
 
   /** Return String representation of PlaceAddress */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 
 class PlusAclentryResource {
 
   /** A descriptive name for this entry. Suitable for display. */
-  String displayName;
+  core.String displayName;
 
   /** The ID of the entry. For entries of type "person" or "circle", this is the ID of the resource. For other types, this property is not set. */
-  String id;
+  core.String id;
 
   /** The type of entry describing to whom access is granted. Possible values are:  
 - "person" - Access to an individual. 
@@ -3386,10 +3386,10 @@ class PlusAclentryResource {
 - "myCircles" - Access to members of all the person's circles. 
 - "extendedCircles" - Access to members of everyone in a person's circles, plus all of the people in their circles. 
 - "public" - Access to anyone on the web. */
-  String type;
+  core.String type;
 
   /** Create new PlusAclentryResource from JSON data */
-  PlusAclentryResource.fromJson(Map json) {
+  PlusAclentryResource.fromJson(core.Map json) {
     if (json.containsKey("displayName")) {
       displayName = json["displayName"];
     }
@@ -3402,8 +3402,8 @@ class PlusAclentryResource {
   }
 
   /** Create JSON Object for PlusAclentryResource */
-  Map toJson() {
-    var output = new Map();
+  core.Map toJson() {
+    var output = new core.Map();
 
     if (displayName != null) {
       output["displayName"] = displayName;
@@ -3419,7 +3419,7 @@ class PlusAclentryResource {
   }
 
   /** Return String representation of PlusAclentryResource */
-  String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.stringify(this.toJson());
 
 }
 

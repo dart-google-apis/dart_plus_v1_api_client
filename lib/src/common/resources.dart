@@ -12,13 +12,13 @@ class ActivitiesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Activity> get(String activityId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Activity> get(core.String activityId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "activities/{activityId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (activityId == null) paramErrors.add("activityId is required");
     if (activityId != null) urlParams["activityId"] = activityId;
     if (optParams != null) {
@@ -60,13 +60,13 @@ class ActivitiesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<ActivityFeed> list(String userId, String collection, {int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<ActivityFeed> list(core.String userId, core.String collection, {core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people/{userId}/activities/{collection}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (collection == null) paramErrors.add("collection is required");
     if (collection != null && !["public"].contains(collection)) {
       paramErrors.add("Allowed values for collection: public");
@@ -120,13 +120,13 @@ class ActivitiesResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<ActivityFeed> search(String query, {String language, int maxResults, String orderBy, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<ActivityFeed> search(core.String query, {core.String language, core.int maxResults, core.String orderBy, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "activities";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (language != null) queryParams["language"] = language;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (orderBy != null && !["best", "recent"].contains(orderBy)) {
@@ -170,13 +170,13 @@ class CommentsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Comment> get(String commentId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Comment> get(core.String commentId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "comments/{commentId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (commentId == null) paramErrors.add("commentId is required");
     if (commentId != null) urlParams["commentId"] = commentId;
     if (optParams != null) {
@@ -220,13 +220,13 @@ class CommentsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<CommentFeed> list(String activityId, {int maxResults, String pageToken, String sortOrder, Map optParams}) {
-    var completer = new Completer();
+  async.Future<CommentFeed> list(core.String activityId, {core.int maxResults, core.String pageToken, core.String sortOrder, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "activities/{activityId}/comments";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (activityId == null) paramErrors.add("activityId is required");
     if (activityId != null) urlParams["activityId"] = activityId;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
@@ -277,13 +277,13 @@ class MomentsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Moment> insert(Moment request, String userId, String collection, {bool debug, Map optParams}) {
-    var completer = new Completer();
+  async.Future<Moment> insert(Moment request, core.String userId, core.String collection, {core.bool debug, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people/{userId}/moments/{collection}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (collection == null) paramErrors.add("collection is required");
     if (collection != null && !["vault"].contains(collection)) {
       paramErrors.add("Allowed values for collection: vault");
@@ -335,13 +335,13 @@ class MomentsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<MomentsFeed> list(String userId, String collection, {int maxResults, String pageToken, String targetUrl, String type, Map optParams}) {
-    var completer = new Completer();
+  async.Future<MomentsFeed> list(core.String userId, core.String collection, {core.int maxResults, core.String pageToken, core.String targetUrl, core.String type, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people/{userId}/moments/{collection}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (collection == null) paramErrors.add("collection is required");
     if (collection != null && !["vault"].contains(collection)) {
       paramErrors.add("Allowed values for collection: vault");
@@ -381,13 +381,13 @@ class MomentsResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Map> remove(String id, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<core.Map> remove(core.String id, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "moments/{id}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (id == null) paramErrors.add("id is required");
     if (id != null) urlParams["id"] = id;
     if (optParams != null) {
@@ -424,13 +424,13 @@ class PeopleResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<Person> get(String userId, {Map optParams}) {
-    var completer = new Completer();
+  async.Future<Person> get(core.String userId, {core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people/{userId}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (userId == null) paramErrors.add("userId is required");
     if (userId != null) urlParams["userId"] = userId;
     if (optParams != null) {
@@ -477,13 +477,13 @@ class PeopleResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<PeopleFeed> list(String userId, String collection, {int maxResults, String orderBy, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<PeopleFeed> list(core.String userId, core.String collection, {core.int maxResults, core.String orderBy, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people/{userId}/people/{collection}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (collection == null) paramErrors.add("collection is required");
     if (collection != null && !["visible"].contains(collection)) {
       paramErrors.add("Allowed values for collection: visible");
@@ -537,13 +537,13 @@ class PeopleResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<PeopleFeed> listByActivity(String activityId, String collection, {int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<PeopleFeed> listByActivity(core.String activityId, core.String collection, {core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "activities/{activityId}/people/{collection}";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (activityId == null) paramErrors.add("activityId is required");
     if (activityId != null) urlParams["activityId"] = activityId;
     if (collection == null) paramErrors.add("collection is required");
@@ -591,13 +591,13 @@ class PeopleResource extends Resource {
    *
    * [optParams] - Additional query parameters
    */
-  Future<PeopleFeed> search(String query, {String language, int maxResults, String pageToken, Map optParams}) {
-    var completer = new Completer();
+  async.Future<PeopleFeed> search(core.String query, {core.String language, core.int maxResults, core.String pageToken, core.Map optParams}) {
+    var completer = new async.Completer();
     var url = "people";
-    var urlParams = new Map();
-    var queryParams = new Map();
+    var urlParams = new core.Map();
+    var queryParams = new core.Map();
 
-    var paramErrors = new List();
+    var paramErrors = new core.List();
     if (language != null) queryParams["language"] = language;
     if (maxResults != null) queryParams["maxResults"] = maxResults;
     if (pageToken != null) queryParams["pageToken"] = pageToken;
