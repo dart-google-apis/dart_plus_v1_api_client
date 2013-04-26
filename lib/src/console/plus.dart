@@ -4,14 +4,14 @@ part of plus_v1_api_console;
 /** The Google+ API enables developers to build on top of the Google+ platform. */
 class Plus extends ConsoleClient {
 
-  ActivitiesResource _activities;
-  ActivitiesResource get activities => _activities;
-  CommentsResource _comments;
-  CommentsResource get comments => _comments;
-  MomentsResource _moments;
-  MomentsResource get moments => _moments;
-  PeopleResource _people;
-  PeopleResource get people => _people;
+  ActivitiesResource_ _activities;
+  ActivitiesResource_ get activities => _activities;
+  CommentsResource_ _comments;
+  CommentsResource_ get comments => _comments;
+  MomentsResource_ _moments;
+  MomentsResource_ get moments => _moments;
+  PeopleResource_ _people;
+  PeopleResource_ get people => _people;
 
   /** OAuth Scope2: Know your name, basic info, and list of people you're connected to on Google+ */
   static const core.String PLUS_LOGIN_SCOPE = "https://www.googleapis.com/auth/plus.login";
@@ -71,9 +71,9 @@ class Plus extends ConsoleClient {
   Plus([oauth2.OAuth2Console auth]) : super(auth) {
     basePath = "/plus/v1/";
     rootUrl = "https://www.googleapis.com:443/";
-    _activities = new ActivitiesResource(this);
-    _comments = new CommentsResource(this);
-    _moments = new MomentsResource(this);
-    _people = new PeopleResource(this);
+    _activities = new ActivitiesResource_(this);
+    _comments = new CommentsResource_(this);
+    _moments = new MomentsResource_(this);
+    _people = new PeopleResource_(this);
   }
 }
