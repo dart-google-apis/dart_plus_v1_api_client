@@ -2466,9 +2466,6 @@ class Person {
 - "other" - Other. */
   core.String gender;
 
-  /** If "true", indicates that the person has installed the app that is making the request and has chosen to expose this install state to the caller. A value of "false" indicates that the install state cannot be determined (it is either not installed or the person has chosen to keep this information private). */
-  core.bool hasApp;
-
   /** The ID of this person. */
   core.String id;
 
@@ -2565,9 +2562,6 @@ class Person {
     }
     if (json.containsKey("gender")) {
       gender = json["gender"];
-    }
-    if (json.containsKey("hasApp")) {
-      hasApp = json["hasApp"];
     }
     if (json.containsKey("id")) {
       id = json["id"];
@@ -2667,9 +2661,6 @@ class Person {
     }
     if (gender != null) {
       output["gender"] = gender;
-    }
-    if (hasApp != null) {
-      output["hasApp"] = hasApp;
     }
     if (id != null) {
       output["id"] = id;
@@ -2995,14 +2986,13 @@ class PersonEmails {
 
 class PersonUrls {
 
-  /** If "true", this URL is the person's primary URL. */
-  core.bool primary;
+  /** The label of the URL. */
+  core.String label;
 
   /** The type of URL. Possible values are:  
-- "home" - URL for home. 
-- "work" - URL for work. 
-- "blog" - URL for blog. 
-- "profile" - URL for profile. 
+- "otherProfile" - URL for another profile. 
+- "contributor" - URL for which this person is a contributor to. 
+- "website" - URL for this Google+ Page's primary website. 
 - "other" - Other. */
   core.String type;
 
@@ -3011,8 +3001,8 @@ class PersonUrls {
 
   /** Create new PersonUrls from JSON data */
   PersonUrls.fromJson(core.Map json) {
-    if (json.containsKey("primary")) {
-      primary = json["primary"];
+    if (json.containsKey("label")) {
+      label = json["label"];
     }
     if (json.containsKey("type")) {
       type = json["type"];
@@ -3026,8 +3016,8 @@ class PersonUrls {
   core.Map toJson() {
     var output = new core.Map();
 
-    if (primary != null) {
-      output["primary"] = primary;
+    if (label != null) {
+      output["label"] = label;
     }
     if (type != null) {
       output["type"] = type;
@@ -3385,6 +3375,7 @@ class PlusAclentryResource {
 - "circle" - Access to members of a circle. 
 - "myCircles" - Access to members of all the person's circles. 
 - "extendedCircles" - Access to members of everyone in a person's circles, plus all of the people in their circles. 
+- "domain" - Access to members of the person's Google Apps domain. 
 - "public" - Access to anyone on the web. */
   core.String type;
 

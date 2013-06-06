@@ -70,7 +70,7 @@ class Plus extends BrowserClient {
 
   Plus([oauth.OAuth2 auth]) : super(auth) {
     basePath = "/plus/v1/";
-    rootUrl = "https://www.googleapis.com:443/";
+    rootUrl = "https://www.googleapis.com/";
     _activities = new ActivitiesResource_(this);
     _comments = new CommentsResource_(this);
     _moments = new MomentsResource_(this);

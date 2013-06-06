@@ -583,9 +583,9 @@ class PeopleResource_ extends Resource {
    *   Default: en-US
    *
    * [maxResults] - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
-   *   Default: 10
+   *   Default: 25
    *   Minimum: 1
-   *   Maximum: 20
+   *   Maximum: 50
    *
    * [pageToken] - The continuation token, which is used to page through large result sets. To get the next page of results, set this parameter to the value of "nextPageToken" from the previous response. This token can be of any length.
    *
