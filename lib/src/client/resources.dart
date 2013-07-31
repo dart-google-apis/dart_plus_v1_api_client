@@ -1,9 +1,11 @@
-part of plus_v1_api_client;
+part of plus_v1_api;
 
-class ActivitiesResource_ extends Resource {
+class ActivitiesResource_ {
 
-  ActivitiesResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  ActivitiesResource_(Client client) :
+      _client = client;
 
   /**
    * Get an activity.
@@ -146,10 +148,12 @@ class ActivitiesResource_ extends Resource {
   }
 }
 
-class CommentsResource_ extends Resource {
+class CommentsResource_ {
 
-  CommentsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  CommentsResource_(Client client) :
+      _client = client;
 
   /**
    * Get a comment.
@@ -237,10 +241,12 @@ class CommentsResource_ extends Resource {
   }
 }
 
-class MomentsResource_ extends Resource {
+class MomentsResource_ {
 
-  MomentsResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  MomentsResource_(Client client) :
+      _client = client;
 
   /**
    * Record a moment representing a user's activity such as making a purchase or commenting on a blog.
@@ -379,10 +385,12 @@ class MomentsResource_ extends Resource {
   }
 }
 
-class PeopleResource_ extends Resource {
+class PeopleResource_ {
 
-  PeopleResource_(Client client) : super(client) {
-  }
+  final Client _client;
+
+  PeopleResource_(Client client) :
+      _client = client;
 
   /**
    * Get a person's profile. If your app uses scope https://www.googleapis.com/auth/plus.login, this method is guaranteed to return ageRange and language.

@@ -1,14 +1,21 @@
-library plus_v1_api_console;
+library plus_v1_api.console;
 
-import "plus_v1_api_client.dart";
-export "plus_v1_api_client.dart";
-
-import "dart:core" as core;
-import "dart:io" as io;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:http/http.dart" as http;
 import "package:google_oauth2_client/google_oauth2_console.dart" as oauth2;
 
-part "src/console/console_client.dart";
-part "src/console/plus.dart";
+import 'package:google_plus_v1_api/src/cloud_api_console.dart';
+
+import "package:google_plus_v1_api/plus_v1_api_client.dart";
+
+/** The Google+ API enables developers to build on top of the Google+ platform. */
+class Plus extends Client with ConsoleClient {
+
+  /** OAuth Scope2: Know your name, basic info, and list of people you're connected to on Google+ */
+  static const String PLUS_LOGIN_SCOPE = "https://www.googleapis.com/auth/plus.login";
+
+  /** OAuth Scope2: Know who you are on Google */
+  static const String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
+
+  final oauth2.OAuth2Console auth;
+
+  Plus([oauth2.OAuth2Console this.auth]);
+}

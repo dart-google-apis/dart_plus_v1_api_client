@@ -1,14 +1,20 @@
-library plus_v1_api_browser;
+library plus_v1_api.browser;
 
-import "plus_v1_api_client.dart";
-export "plus_v1_api_client.dart";
-
-import "dart:core" as core;
-import "dart:html" as html;
-import "dart:async" as async;
-import "dart:json" as JSON;
-import "package:js/js.dart" as js;
 import "package:google_oauth2_client/google_oauth2_browser.dart" as oauth;
 
-part "src/browser/browser_client.dart";
-part "src/browser/plus.dart";
+import 'package:google_plus_v1_api/src/cloud_api_browser.dart';
+import "package:google_plus_v1_api/plus_v1_api_client.dart";
+
+/** The Google+ API enables developers to build on top of the Google+ platform. */
+class Plus extends Client with BrowserClient {
+
+  /** OAuth Scope2: Know your name, basic info, and list of people you're connected to on Google+ */
+  static const String PLUS_LOGIN_SCOPE = "https://www.googleapis.com/auth/plus.login";
+
+  /** OAuth Scope2: Know who you are on Google */
+  static const String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
+
+  final oauth.OAuth2 auth;
+
+  Plus([oauth.OAuth2 this.auth]);
+}
