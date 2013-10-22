@@ -42,7 +42,7 @@ class Acl {
   }
 
   /** Return String representation of Acl */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -60,7 +60,7 @@ class Activity {
   /** Additional content added by the person who shared this activity, applicable only when resharing an activity. */
   core.String annotation;
 
-  /** If this activity is a cross post from another system, this property specifies the ID of the original activity. */
+  /** If this activity is a crosspost from another system, this property specifies the ID of the original activity. */
   core.String crosspostSource;
 
   /** ETag of this response for caching purposes. */
@@ -243,7 +243,7 @@ class Activity {
   }
 
   /** Return String representation of Activity */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -253,7 +253,7 @@ class ActivityActor {
   /** The name of the actor, suitable for display. */
   core.String displayName;
 
-  /** The ID of the actor's person resource. */
+  /** The ID of the actor's Person resource. */
   core.String id;
 
   /** The image representation of the actor. */
@@ -308,14 +308,14 @@ class ActivityActor {
   }
 
   /** Return String representation of ActivityActor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** The image representation of the actor. */
 class ActivityActorImage {
 
-  /** The URL of the actor's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
+  /** The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
   core.String url;
 
   /** Create new ActivityActorImage from JSON data */
@@ -337,17 +337,17 @@ class ActivityActorImage {
   }
 
   /** Return String representation of ActivityActorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** An object representation of the individual components of name. */
 class ActivityActorName {
 
-  /** The family name (last name) of the actor. */
+  /** The family name ("last name") of the actor. */
   core.String familyName;
 
-  /** The given name (first name) of the actor. */
+  /** The given name ("first name") of the actor. */
   core.String givenName;
 
   /** Create new ActivityActorName from JSON data */
@@ -375,7 +375,7 @@ class ActivityActorName {
   }
 
   /** Return String representation of ActivityActorName */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -487,7 +487,7 @@ class ActivityObject {
   }
 
   /** Return String representation of ActivityObject */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -543,7 +543,7 @@ class ActivityObjectActor {
   }
 
   /** Return String representation of ActivityObjectActor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -572,7 +572,7 @@ class ActivityObjectActorImage {
   }
 
   /** Return String representation of ActivityObjectActorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -606,7 +606,7 @@ class ActivityObjectAttachments {
   /** If the attachment is an album, this property is a list of potential additional thumbnails from the album. */
   core.List<ActivityObjectAttachmentsThumbnails> thumbnails;
 
-  /** The link to the attachment, should be of type text/html. */
+  /** The link to the attachment, which should be of type text/html. */
   core.String url;
 
   /** Create new ActivityObjectAttachments from JSON data */
@@ -676,7 +676,7 @@ class ActivityObjectAttachments {
   }
 
   /** Return String representation of ActivityObjectAttachments */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -714,7 +714,7 @@ class ActivityObjectAttachmentsEmbed {
   }
 
   /** Return String representation of ActivityObjectAttachmentsEmbed */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -727,7 +727,7 @@ class ActivityObjectAttachmentsFullImage {
   /** Media type of the link. */
   core.String type;
 
-  /** URL to the image. */
+  /** URL of the image. */
   core.String url;
 
   /** The width, in pixels, of the linked resource. */
@@ -770,7 +770,7 @@ class ActivityObjectAttachmentsFullImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsFullImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -783,7 +783,7 @@ class ActivityObjectAttachmentsImage {
   /** Media type of the link. */
   core.String type;
 
-  /** Image url. */
+  /** Image URL. */
   core.String url;
 
   /** The width, in pixels, of the linked resource. */
@@ -826,7 +826,7 @@ class ActivityObjectAttachmentsImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -838,7 +838,7 @@ class ActivityObjectAttachmentsThumbnails {
   /** Image resource. */
   ActivityObjectAttachmentsThumbnailsImage image;
 
-  /** URL to the webpage containing the image. */
+  /** URL of the webpage containing the image. */
   core.String url;
 
   /** Create new ActivityObjectAttachmentsThumbnails from JSON data */
@@ -872,7 +872,7 @@ class ActivityObjectAttachmentsThumbnails {
   }
 
   /** Return String representation of ActivityObjectAttachmentsThumbnails */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -928,7 +928,7 @@ class ActivityObjectAttachmentsThumbnailsImage {
   }
 
   /** Return String representation of ActivityObjectAttachmentsThumbnailsImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -966,7 +966,7 @@ class ActivityObjectPlusoners {
   }
 
   /** Return String representation of ActivityObjectPlusoners */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1004,7 +1004,7 @@ class ActivityObjectReplies {
   }
 
   /** Return String representation of ActivityObjectReplies */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1042,7 +1042,7 @@ class ActivityObjectResharers {
   }
 
   /** Return String representation of ActivityObjectResharers */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1071,7 +1071,7 @@ class ActivityProvider {
   }
 
   /** Return String representation of ActivityProvider */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1098,7 +1098,7 @@ class ActivityFeed {
   /** Link to this activity resource. */
   core.String selfLink;
 
-  /** The title of this collection of activities. */
+  /** The title of this collection of activities, which is a truncated portion of the content. */
   core.String title;
 
   /** The time at which this collection of activities was last updated. Formatted as an RFC 3339 timestamp. */
@@ -1171,7 +1171,7 @@ class ActivityFeed {
   }
 
   /** Return String representation of ActivityFeed */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1290,7 +1290,7 @@ class Comment {
   }
 
   /** Return String representation of Comment */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1306,7 +1306,7 @@ class CommentActor {
   /** The image representation of this actor. */
   CommentActorImage image;
 
-  /** A link to the person resource for this actor. */
+  /** A link to the Person resource for this actor. */
   core.String url;
 
   /** Create new CommentActor from JSON data */
@@ -1346,14 +1346,14 @@ class CommentActor {
   }
 
   /** Return String representation of CommentActor */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** The image representation of this actor. */
 class CommentActorImage {
 
-  /** The URL of the actor's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
+  /** The URL of the actor's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
   core.String url;
 
   /** Create new CommentActorImage from JSON data */
@@ -1375,7 +1375,7 @@ class CommentActorImage {
   }
 
   /** Return String representation of CommentActorImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1412,7 +1412,7 @@ class CommentInReplyTo {
   }
 
   /** Return String representation of CommentInReplyTo */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1460,7 +1460,7 @@ class CommentObject {
   }
 
   /** Return String representation of CommentObject */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1489,7 +1489,7 @@ class CommentPlusoners {
   }
 
   /** Return String representation of CommentPlusoners */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -1580,7 +1580,7 @@ class CommentFeed {
   }
 
   /** Return String representation of CommentFeed */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2094,7 +2094,7 @@ class ItemScope {
   }
 
   /** Return String representation of ItemScope */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2167,7 +2167,7 @@ class Moment {
   }
 
   /** Return String representation of Moment */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2258,7 +2258,7 @@ class MomentsFeed {
   }
 
   /** Return String representation of MomentsFeed */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2340,7 +2340,7 @@ class PeopleFeed {
   }
 
   /** Return String representation of PeopleFeed */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2411,7 +2411,7 @@ class Person {
   /** A list of places where this person has lived. */
   core.List<PersonPlacesLived> placesLived;
 
-  /** If a Google+ Page, the number of people who have +1'ed this page. */
+  /** If a Google+ Page, the number of people who have +1'd this page. */
   core.int plusOneCount;
 
   /** The person's relationship status. Possible values include, but are not limited to, the following values:  
@@ -2607,7 +2607,7 @@ class Person {
   }
 
   /** Return String representation of Person */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2645,7 +2645,7 @@ class PersonAgeRange {
   }
 
   /** Return String representation of PersonAgeRange */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2693,17 +2693,17 @@ class PersonCover {
   }
 
   /** Return String representation of PersonCover */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** Extra information about the cover photo. */
 class PersonCoverCoverInfo {
 
-  /** The difference between the left position of the image cover and the actual displayed cover image. Only valid for BANNER layout. */
+  /** The difference between the left position of the cover image and the actual displayed cover image. Only valid for banner layout. */
   core.int leftImageOffset;
 
-  /** The difference between the top position of the image cover and the actual displayed cover image. Only valid for BANNER layout. */
+  /** The difference between the top position of the cover image and the actual displayed cover image. Only valid for banner layout. */
   core.int topImageOffset;
 
   /** Create new PersonCoverCoverInfo from JSON data */
@@ -2731,20 +2731,20 @@ class PersonCoverCoverInfo {
   }
 
   /** Return String representation of PersonCoverCoverInfo */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** The person's primary cover image. */
 class PersonCoverCoverPhoto {
 
-  /** The height to the image. */
+  /** The height of the image. */
   core.int height;
 
-  /** The url to the image. */
+  /** The URL of the image. */
   core.String url;
 
-  /** The width to the image. */
+  /** The width of the image. */
   core.int width;
 
   /** Create new PersonCoverCoverPhoto from JSON data */
@@ -2778,14 +2778,14 @@ class PersonCoverCoverPhoto {
   }
 
   /** Return String representation of PersonCoverCoverPhoto */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
 /** The representation of the person's profile photo. */
 class PersonImage {
 
-  /** The URL of the person's profile photo. To re-size the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
+  /** The URL of the person's profile photo. To resize the image and crop it to a square, append the query string ?sz=x, where x is the dimension in pixels of each side. */
   core.String url;
 
   /** Create new PersonImage from JSON data */
@@ -2807,7 +2807,7 @@ class PersonImage {
   }
 
   /** Return String representation of PersonImage */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2881,7 +2881,7 @@ class PersonName {
   }
 
   /** Return String representation of PersonName */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -2983,7 +2983,7 @@ class PersonOrganizations {
   }
 
   /** Return String representation of PersonOrganizations */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3020,7 +3020,7 @@ class PersonPlacesLived {
   }
 
   /** Return String representation of PersonPlacesLived */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3070,7 +3070,7 @@ class PersonUrls {
   }
 
   /** Return String representation of PersonUrls */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3125,7 +3125,7 @@ class Place {
   }
 
   /** Return String representation of Place */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3154,7 +3154,7 @@ class PlaceAddress {
   }
 
   /** Return String representation of PlaceAddress */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3192,7 +3192,7 @@ class PlacePosition {
   }
 
   /** Return String representation of PlacePosition */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
@@ -3208,7 +3208,7 @@ class PlusAclentryResource {
 - "person" - Access to an individual. 
 - "circle" - Access to members of a circle. 
 - "myCircles" - Access to members of all the person's circles. 
-- "extendedCircles" - Access to members of everyone in a person's circles, plus all of the people in their circles. 
+- "extendedCircles" - Access to members of all the person's circles, plus all of the people in their circles. 
 - "domain" - Access to members of the person's Google Apps domain. 
 - "public" - Access to anyone on the web. */
   core.String type;
@@ -3244,7 +3244,7 @@ class PlusAclentryResource {
   }
 
   /** Return String representation of PlusAclentryResource */
-  core.String toString() => JSON.stringify(this.toJson());
+  core.String toString() => JSON.encode(this.toJson());
 
 }
 
