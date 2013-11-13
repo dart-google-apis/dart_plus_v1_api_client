@@ -14,7 +14,7 @@ Adding dependency to pubspec.yaml
 
 ```
   dependencies:
-    google_plus_v1_api: '>=0.4.11'
+    google_plus_v1_api: '>=0.4.12'
 ```
 
 For web applications:
@@ -29,13 +29,13 @@ For console application:
   import "package:google_plus_v1_api/plus_v1_api_console.dart" as plusclient;
 ```
 
-Working with out authentication the following constructor can be called:
+Working without authentication the following constructor can be called:
 
 ```
   var plus = new plusclient.Plus();
 ```
 
-Working with authentication then create a new `GoogleOAuth2` object and pass it to the constructor:
+To use authentication create a new `GoogleOAuth2` object and pass it to the constructor:
 
 
 ```
