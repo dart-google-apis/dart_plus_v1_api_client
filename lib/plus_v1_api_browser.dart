@@ -14,6 +14,12 @@ class Plus extends Client with BrowserClient {
   /** OAuth Scope2: Know who you are on Google */
   static const String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
 
+  /** OAuth Scope2: View your email address */
+  static const String USERINFO_EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
+
+  /** OAuth Scope2: View basic information about your account */
+  static const String USERINFO_PROFILE_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
+
   final oauth.OAuth2 auth;
 
   Plus([oauth.OAuth2 this.auth]);

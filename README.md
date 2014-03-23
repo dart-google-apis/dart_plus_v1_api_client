@@ -14,7 +14,7 @@ Adding dependency to pubspec.yaml
 
 ```
   dependencies:
-    google_plus_v1_api: '>=0.4.12'
+    google_plus_v1_api: '>=0.4.13'
 ```
 
 For web applications:
@@ -46,7 +46,7 @@ To use authentication create a new `GoogleOAuth2` object and pass it to the cons
 ### Licenses
 
 ```
-Copyright (c) 2013 Gerwin Sturm & Adam Singer
+Copyright (c) 2013-2014 Gerwin Sturm & Adam Singer
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may 
 not use this file except in compliance with the License. You may obtain a 

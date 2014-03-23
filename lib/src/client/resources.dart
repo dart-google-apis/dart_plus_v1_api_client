@@ -432,6 +432,7 @@ class PeopleResource_ {
    *
    * [collection] - The collection of people to list.
    *   Allowed values:
+   *     connected - The list of visible people in the authenticated user's circles who also use the requesting app. This list is limited to users who made their app activities visible to the authenticated user.
    *     visible - The list of people who this user has added to one or more circles, limited to the circles visible to the requesting application.
    *
    * [maxResults] - The maximum number of people to include in the response, which is used for paging. For any response, the actual number returned might be less than the specified maxResults.
@@ -455,8 +456,8 @@ class PeopleResource_ {
 
     var paramErrors = new core.List();
     if (collection == null) paramErrors.add("collection is required");
-    if (collection != null && !["visible"].contains(collection)) {
-      paramErrors.add("Allowed values for collection: visible");
+    if (collection != null && !["connected", "visible"].contains(collection)) {
+      paramErrors.add("Allowed values for collection: connected, visible");
     }
     if (collection != null) urlParams["collection"] = collection;
     if (maxResults != null) queryParams["maxResults"] = maxResults;

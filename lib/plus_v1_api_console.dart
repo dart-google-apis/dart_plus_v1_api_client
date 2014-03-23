@@ -15,6 +15,12 @@ class Plus extends Client with ConsoleClient {
   /** OAuth Scope2: Know who you are on Google */
   static const String PLUS_ME_SCOPE = "https://www.googleapis.com/auth/plus.me";
 
+  /** OAuth Scope2: View your email address */
+  static const String USERINFO_EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
+
+  /** OAuth Scope2: View basic information about your account */
+  static const String USERINFO_PROFILE_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
+
   final oauth2.OAuth2Console auth;
 
   Plus([oauth2.OAuth2Console this.auth]);
