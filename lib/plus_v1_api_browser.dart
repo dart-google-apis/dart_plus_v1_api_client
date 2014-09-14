@@ -6,6 +6,7 @@ import 'package:google_plus_v1_api/src/browser_client.dart';
 import "package:google_plus_v1_api/plus_v1_api_client.dart";
 
 /** The Google+ API enables developers to build on top of the Google+ platform. */
+@deprecated
 class Plus extends Client with BrowserClient {
 
   /** OAuth Scope2: Know your basic profile info and list of people in your circles. */
@@ -17,7 +18,7 @@ class Plus extends Client with BrowserClient {
   /** OAuth Scope2: View your email address */
   static const String USERINFO_EMAIL_SCOPE = "https://www.googleapis.com/auth/userinfo.email";
 
-  /** OAuth Scope2: View basic information about your account */
+  /** OAuth Scope2: View your basic profile info */
   static const String USERINFO_PROFILE_SCOPE = "https://www.googleapis.com/auth/userinfo.profile";
 
   final oauth.OAuth2 auth;

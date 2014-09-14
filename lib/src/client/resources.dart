@@ -249,11 +249,11 @@ class MomentsResource_ {
       _client = client;
 
   /**
-   * Record a moment representing a user's activity such as making a purchase or commenting on a blog.
+   * Record a moment representing a user's action such as making a purchase or commenting on a blog.
    *
    * [request] - Moment to send in this request
    *
-   * [userId] - The ID of the user to record activities for. The only valid values are "me" and the ID of the authenticated user.
+   * [userId] - The ID of the user to record actions for. The only valid values are "me" and the ID of the authenticated user.
    *
    * [collection] - The collection to which to write moments.
    *   Allowed values:
